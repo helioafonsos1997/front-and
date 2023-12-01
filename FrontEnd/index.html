@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <base href="./">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanilla SPA Front-End</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="null.css" id="pageCSS">
+    <link rel="icon" href="favicon.png">
+    <link rel="manifest" href="manifest.json">
+    <script>
+        // PWA By https://pwa-factory.com/
+        if ('serviceWorker' in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register('service-worker.js')
+                    .then(function (registration) {
+                        // Debug: 
+                        console.log('ServiceWorker registrado: ', registration);
+                    }).catch(function (err) {
+                        // Debug:                         
+                        console.log('Falha no serviceWorker: ', err);
+                    });
+            })
+        }
+    </script>
+</head>
+
+<body>
+
+    <a id="top"></a>
+
+    <div id="wrap">
+
+        <header>
+            <div>
+                <div id="header"></div>
+                <form id="search">
+                    <input type="search" name="q" placeholder="Procurar">
+                    <button type="submit"><i class="fa-solid fa-magnifying-glass fa-fw"></i></button>
+                </form>
+            </div>
+        </header>
+        <nav>
+            <div id="menu"></div>
+        </nav>
+        <main>
+            <div id="content"></div>
+        </main>
+        <footer>
+            <div>
+                <a href="home"><i class="fa-solid fa-house fa-fw"></i></a>
+                <div id="license"></div>
+                <a href="#top"><i class="fa-solid fa-circle-up fa-fw"></i></a>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="index.js"></script>
+
+</body>
+
+</html>
